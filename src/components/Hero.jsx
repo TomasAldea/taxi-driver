@@ -22,7 +22,7 @@ export default function Hero() {
               Tu Taxi de confianza
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            Si buscas un transporte confiable y seguro en la ciudad de Sabadell o alrededores para que te lleve a cualquier lugar de España, este es tu transoporte. 
+            Si buscas un transporte confiable y seguro en la ciudad de Sabadell o alrededores para que te lleve a cualquier lugar de España, este es tu transporte. 
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a

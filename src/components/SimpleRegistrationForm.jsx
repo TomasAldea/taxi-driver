@@ -10,11 +10,11 @@ import {
   export function SimpleRegistrationForm() {
     return (
       <Card id="presupuesto" className="mt-5 mb-8 items-center mb:px-8" color="transparent" shadow={false}>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="mt-2 text-3xl text-center font-bold tracking-tight text-gray-900 sm:text-4xl">
           Presupuesto a medida
         </h2>
-        <Typography color="gray" className="mt-1 font-normal text-center">
-          Enviame un email con todas tus dudas y te <br></br> enviaré un presupuesto adaptado a tus necesidades
+        <Typography color="gray" className="mt-1 font-normal text-center max-w-md">
+          Enviame un email con todas tus dudas y te enviaré un presupuesto adaptado a tus necesidades
         </Typography>
         <form className="mt-8 mb-2 xl:w-1/2 mb:w-full">
           <div className="mb-4 flex flex-col gap-6">

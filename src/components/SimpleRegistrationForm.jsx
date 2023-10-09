@@ -6,6 +6,7 @@ import {
     Button,
     Typography,
   } from "@material-tailwind/react";
+import LocationInput from "./LocationInput";
    
   export function SimpleRegistrationForm() {
     return (
@@ -23,6 +24,7 @@ import {
             <Input type="number" size="lg" label="Teléfono" />
             <Input size="lg" label="Origen" />
             <Input size="lg" label="Destino" />
+            <LocationInput/>
             <Textarea type="password" size="lg" label="¿Tienes alguna duda?" />
           </div>
           {/* <Checkbox

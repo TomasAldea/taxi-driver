@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { calcularDistancia } from "../utils/global";
+import { track } from '@vercel/analytics';
+
 import {
   Input,
   Timeline,
@@ -7,7 +8,6 @@ import {
   TimelineConnector,
   TimelineHeader,
   TimelineIcon,
-  TimelineBody,
   Typography,
 } from "@material-tailwind/react";
 
@@ -145,6 +145,7 @@ export default function LocationInput() {
       const realDistance = data.features[0].properties.segments[0].distance / 1000;
       setDistanceResult(realDistance.toFixed(2));
       setTotalPrice(realDistance.toFixed(2) * 1.38);
+      track('Presupuesto visto');
     } catch (error) {
       // Manejar cualquier error que ocurra durante la solicitud
       console.error(error);

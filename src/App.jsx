@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavbarDefault } from "./components/NavbarDefault";
 import { FooterWithLogo } from "./components/FooterWithLogo";
 import { SimpleRegistrationForm } from "./components/SimpleRegistrationForm";
@@ -7,8 +6,16 @@ import Hero from "./components/Hero";
 import Testimonials from "./components/Testimonials";
 import { About } from "./components/About";
 import { Instagram } from "./components/Instagram";
+import { Analytics } from '@vercel/analytics/react';
+import AOS from 'aos';
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(() => {
+    AOS.init( {offset: 500} );
+  }, [])
+  
   return (
     <>
       <NavbarDefault/>
@@ -21,6 +28,8 @@ function App() {
       </div>
       <Instagram/>
       <FooterWithLogo/>
+
+      <Analytics />
     </>
   );
 }

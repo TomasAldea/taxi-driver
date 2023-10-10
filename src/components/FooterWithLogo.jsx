@@ -1,5 +1,6 @@
 import { Typography } from "@material-tailwind/react";
- 
+import { track } from '@vercel/analytics';
+
 export function FooterWithLogo() {
   return (
     <footer className="w-full bg-white p-8">
@@ -18,6 +19,7 @@ export function FooterWithLogo() {
           </li>
           <li>
             <Typography
+              onClick={track('Click en Email footer')}
               as="a"
               href="#"
               color="blue-gray"
@@ -28,6 +30,7 @@ export function FooterWithLogo() {
           </li>
           <li>
             <Typography
+              onClick={track('Click en Teléfono footer')}
               as="a"
               href="#"
               color="blue-gray"

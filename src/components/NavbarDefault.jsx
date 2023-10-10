@@ -1,4 +1,6 @@
 import React from "react";
+import { track } from '@vercel/analytics';
+
 import {
   Navbar,
   Collapse,
@@ -28,7 +30,8 @@ export function NavbarDefault() {
   };
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul 
+    className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         variant="small"
@@ -37,8 +40,10 @@ export function NavbarDefault() {
       >
         <div
           className="flex items-center"
-          onClick={() => scrollToSection("inicio")}
-        >
+          onClick={() => {
+            scrollToSection("inicio");
+            track('Click en inicio hero');
+          }}        >
           Inicio
         </div>
       </Typography>
@@ -50,7 +55,10 @@ export function NavbarDefault() {
       >
         <div
           className="flex items-center"
-          onClick={() => scrollToSection("servicios")}
+          onClick={() => {
+            scrollToSection("servicios");
+            track('Click en servicios hero');
+          }}    
         >
           Servicios
         </div>
@@ -63,7 +71,10 @@ export function NavbarDefault() {
       >
         <div
           className="flex items-center"
-          onClick={() => scrollToSection("testimonios")}
+          onClick={() => {
+            scrollToSection("testimonios");
+            track('Click en testimonios hero');
+          }}    
         >
           Testimonios
         </div>
@@ -76,7 +87,10 @@ export function NavbarDefault() {
       >
         <div
           className="flex items-center"
-          onClick={() => scrollToSection("presupuesto")}
+          onClick={() => {
+            scrollToSection("presupuesto");
+            track('Click en presupuesto hero');
+          }}    
         >
           Presupuesto
         </div>
@@ -89,7 +103,10 @@ export function NavbarDefault() {
       >
         <a
           className="flex items-center"
-          onClick={() => scrollToSection("quien-soy")}
+          onClick={() => {
+            scrollToSection("quien-soy");
+            track('Click en quien-soy hero');
+          }}  
         >
           Quien soy
         </a>
@@ -98,7 +115,9 @@ export function NavbarDefault() {
   );
 
   return (
-    <Navbar className="fixed top-0 left-0 right-0 bg-white z-10 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+    <Navbar 
+    data-aos-delay="300" data-aos-duration="600" data-aos="fade-down" data-aos-offset="0"
+    className="fixed top-0 left-0 right-0 bg-white z-10 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -108,6 +127,7 @@ export function NavbarDefault() {
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <Button
+          onClick={track('Click en llamar menú')}
           variant="gradient"
           size="sm"
           className=" bg-sabagreen-50 bg-none hidden lg:inline-block"
@@ -156,6 +176,7 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           <Button
+            onClick={track('Click en Llamar ya menú')}
             variant="gradient"
             size="sm"
             fullWidth

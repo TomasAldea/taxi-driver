@@ -10,7 +10,7 @@ import LocationInput from "./LocationInput";
    
   export function SimpleRegistrationForm() {
     return (
-      <Card id="presupuesto" className="mt-5 mb-8 items-center mb:px-8" color="transparent" shadow={false}>
+      <Card id="presupuesto" className="mt-5 mb-8 items-center mb:px-8" color="transparent" shadow={false} data-aos-duration="300" data-aos="fade-up">
         <h2 className="mt-2 text-3xl text-center font-bold tracking-tight text-gray-900 sm:text-4xl">
           Presupuesto a medida
         </h2>

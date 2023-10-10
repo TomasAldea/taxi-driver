@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { calcularDistancia } from "../utils/global";
+import {
+  Input,
+  Timeline,
+  TimelineItem,
+  TimelineConnector,
+  TimelineHeader,
+  TimelineIcon,
+  TimelineBody,
+  Typography,
+} from "@material-tailwind/react";
 
-//! Temporal
-const inputClass = "my-4 peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-3 rounded-md border-blue-gray-200 focus:border-gray-900";
-
-function LocationInput() {
+export default function LocationInput() {
   const [originName, setOriginName] = useState("");
   const [destinationName, setDestinationName] = useState("");
-  const [origin, setOrigin] = useState({});
-  const [destination, setDestination] = useState({});
+  const [origin, setOrigin] = useState(false);
+  const [destination, setDestination] = useState(false);
   const [originLocations, setOriginLocations] = useState([]);
   const [destinationLocations, setDestinationLocations] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,6 +24,16 @@ function LocationInput() {
   const [originTimeout, setOriginTimeout] = useState(null);
   const [destinationTimeout, setDestinationTimeout] = useState(null);
   const [distanceResult, setDistanceResult] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(null);
+
+  function closeUl(event) {
+    const elemento = document.querySelector(".main-ul");
+    if (elemento && !elemento.contains(event.target)) {
+      setShowOriginList(false);
+      setShowDestinationList(false);
+    }
+  }
+  document.addEventListener("click", closeUl);
 
   useEffect(() => {
     if (originName.trim() === "") {
@@ -46,6 +63,12 @@ function LocationInput() {
     }, 500); // Esperar medio segundo después de la última pulsación de tecla
 
     setOriginTimeout(timeoutId);
+
+    // Si ambos inputs estan rellenados, mostramos precio y distancia
+    if (origin && destination) {
+      handleLocationSelection();
+    }
+
   }, [originName]);
 
   useEffect(() => {
@@ -76,6 +99,12 @@ function LocationInput() {
     }, 500); // Esperar medio segundo después de la última pulsación de tecla
 
     setDestinationTimeout(timeoutId);
+
+    // Si ambos inputs estan rellenados, mostramos precio y distancia
+    if (origin && destination) {
+      handleLocationSelection();
+    }
+
   }, [destinationName]);
 
   // Función para establecer el origen seleccionado
@@ -94,17 +123,41 @@ function LocationInput() {
     setShowDestinationList(false); // Ocultar la lista de destino después de la selección
   };
 
-  // Función para manejar la selección de ubicaciones
-  const handleLocationSelection = () => {
-    setDistanceResult(calcularDistancia(origin.lat, origin.lon, destination.lat, destination.lon));
+  // Función para conseguir la distancia entre puntos
+  const handleLocationSelection = async () => {
+    try {
+      const response = await fetch(
+        `https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf6248aa735e78014e427891cbee24bfab6519&start=${origin.lon},${origin.lat}&end=${destination.lon},${destination.lat}`
+      );
+  
+      if (!response.ok) {
+        // Verificar si la respuesta no es exitosa (por ejemplo, un error HTTP 404 o 500)
+        throw new Error(`Error en la solicitud: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      
+      if (data.error) {
+        // Verificar si la respuesta de la API contiene un error específico
+        throw new Error(`Error de la API: ${data.error.message}`);
+      }
+  
+      const realDistance = data.features[0].properties.segments[0].distance / 1000;
+      setDistanceResult(realDistance.toFixed(2));
+      setTotalPrice(realDistance.toFixed(2) * 1.38);
+    } catch (error) {
+      // Manejar cualquier error que ocurra durante la solicitud
+      console.error(error);
+      // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones apropiadas.
+    }
   };
+  
 
   return (
-    <div className="flex flex-col">
-      <input
-        className={inputClass}
+    <>
+      <Input
         type="text"
-        placeholder="Ingrese una ubicación de origen..."
+        label="Ingrese una ubicación de origen"
         value={originName}
         onChange={(e) => {
           setOriginName(e.target.value);
@@ -113,11 +166,16 @@ function LocationInput() {
       />
       <input type="hidden" id="originLatLong" value={JSON.stringify(origin)} />
       {originLocations.length > 0 && showOriginList && (
-        <ul className="bg-white p-6 shadow-2xl rounded-md">
-          Origen:
+        <ul
+          className="main-ul bg-white p-6 rounded-md max-h-96 overflow-auto"
+          style={{ boxShadow: "0 0 20px 4px rgba(0, 0, 0, 0.41)" }}
+        >
+          <li className="py-2 border-b text-sabagreen-50 font-bold border-sabagreen-50 mb-4">
+            Origen
+          </li>
           {originLocations.map(({ lat, lon, display_name, place_id }) => (
             <li
-              className="cursor-pointer my-1"
+              className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
               onClick={() => setOriginInput(lat, lon, display_name)}
               key={place_id}
             >
@@ -126,26 +184,32 @@ function LocationInput() {
           ))}
         </ul>
       )}
-  
-      <input
-        className={inputClass}
+      <Input
         type="text"
-        placeholder="Ingrese una ubicación de destino..."
+        label="Ingrese una ubicación de destino"
         value={destinationName}
         onChange={(e) => {
           setDestinationName(e.target.value);
           setShowDestinationList(true); // Mostrar la lista de destino al escribir
         }}
       />
-      <input type="hidden" id="destinationLatLong" value={JSON.stringify(destination)} />
-  
+      <input
+        type="hidden"
+        id="destinationLatLong"
+        value={JSON.stringify(destination)}
+      />
       {loading && <p>Cargando...</p>}
       {destinationLocations.length > 0 && showDestinationList && (
-        <ul className="bg-white p-6 shadow-2xl rounded-md">
-          Destino:
+        <ul
+          className="main-ul bg-white p-6 rounded-md max-h-96 overflow-auto"
+          style={{ boxShadow: "0 0 20px 4px rgba(0, 0, 0, 0.41)" }}
+        >
+          <li className="py-2 border-b text-sabagreen-50 font-bold border-sabagreen-50 mb-4">
+            Destino
+          </li>
           {destinationLocations.map(({ lat, lon, display_name, place_id }) => (
             <li
-              className="cursor-pointer my-1"
+              className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
               onClick={() => setDestinationInput(lat, lon, display_name)}
               key={place_id}
             >
@@ -154,12 +218,31 @@ function LocationInput() {
           ))}
         </ul>
       )}
-  
-      <div className=" cursor-pointer" onClick={handleLocationSelection} id="totalDistance">Calcula distancia {(distanceResult) && <span className=" text-sabagreen-100">{distanceResult} Km</span>}</div>
-    </div>
+
+      {distanceResult && (
+        <Timeline>
+          <TimelineItem>
+            <TimelineConnector />
+            <TimelineHeader className="h-3 mb-8">
+              <TimelineIcon />
+              <Typography className="font-bold">
+                Kilómetros totales: <span className="text-sabagreen-50">{distanceResult}km</span>
+              </Typography>
+            </TimelineHeader>
+
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineConnector />
+            <TimelineHeader className="h-3">
+              <TimelineIcon />
+              <Typography className="font-bold">
+                Presupuesto aproximado: <span className="text-sabagreen-50">{totalPrice.toFixed(2)}€</span>
+              </Typography>
+            </TimelineHeader>
+
+          </TimelineItem>
+        </Timeline>
+      )}
+    </>
   );
 }
-
-export default LocationInput;
-
-

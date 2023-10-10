@@ -22,10 +22,11 @@ import LocationInput from "./LocationInput";
             <Input size="lg" label="Nombre y Apellidos" />
             <Input size="lg" label="Email" />
             <Input type="number" size="lg" label="Teléfono" />
-            <Input size="lg" label="Origen" />
-            <Input size="lg" label="Destino" />
             <LocationInput/>
-            <Textarea type="password" size="lg" label="¿Tienes alguna duda?" />
+            <Typography className="font-medium text-sabagreen-50 text-center mt-5">
+              ¿No encuentras el destino en la lista? ¿Tienes dudas extra? Escríbeme y te responderé lo mas pronto posible.
+            </Typography>
+            <Textarea type="password" size="lg" label="Comentarios" />
           </div>
           {/* <Checkbox
             label={

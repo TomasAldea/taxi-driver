@@ -22,7 +22,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=1" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=1" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Kenzie Edgar.</div>
@@ -39,7 +39,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=2" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=2" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Stevie Tifft.</div>
@@ -56,7 +56,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=3" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=3" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Tommie Ewart.</div>
@@ -73,7 +73,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=4" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=4" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Charlie Howse.</div>
@@ -90,7 +90,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=5" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=5" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Nevada Herbertson.</div>
@@ -107,7 +107,7 @@ export default function Testimonials() {
               <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                    <img src="https://i.pravatar.cc/100?img=6" width="auto" height="auto" alt="Imagen usuario review" />
+                    <img src="https://i.pravatar.cc/100?img=6" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="font-bold text-sm uppercase text-gray-600">Kris Stanton.</div>

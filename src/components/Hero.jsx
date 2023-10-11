@@ -43,6 +43,7 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
+                aria-label="Botón para llamar por teléfono"
                 data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"
                 href="tel:+34649713682"
                 className="flex flex-row rounded-md bg-sabagreen-50 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sabagreen-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"

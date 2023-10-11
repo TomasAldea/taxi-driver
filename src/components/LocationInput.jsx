@@ -176,6 +176,7 @@ export default function LocationInput() {
   return (
     <>
       <Input
+        name="destino" labelProps={{ htmlFor: "destino" }}
         className=" shadow-xl"
         type="text"
         label="Ingrese una ubicación de origen"
@@ -210,6 +211,7 @@ export default function LocationInput() {
         </ul>
       )}
       <Input
+        name="origen" labelProps={{ htmlFor: "origen" }}
         className=" shadow-xl"
         type="text"
         label="Ingrese una ubicación de destino"

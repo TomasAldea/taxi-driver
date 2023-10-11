@@ -128,9 +128,9 @@ export function NavbarDefault() {
           Taxi Andreu
         </Typography>
         <div className="hidden lg:block">{navList}</div>
-        <a href="tel:+34649713682" aria-label="Botón para llamar por teléfono">
+        <a href="tel:+34649713682" aria-label="llamar ya">
           <Button
-            aria-label="Botón para llamar por teléfono"
+            aria-label="llamar ya"
             variant="gradient"
             size="sm"
             className=" bg-sabagreen-50 bg-none hidden lg:inline-block"
@@ -139,6 +139,7 @@ export function NavbarDefault() {
           </Button>
         </a>
         <IconButton
+          aria-label="Botón para expandir o contraer el contenido"
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
@@ -176,7 +177,8 @@ export function NavbarDefault() {
           )}
         </IconButton>
       </div>
-      <Collapse open={openNav}>
+      <Collapse 
+      open={openNav}>
         <div className="container mx-auto">
           {navList}
           <a href="/vcf/taxiandreu.vcf" download="taxiandreu.vcf" aria-label="Botón para añadir teléfono a la agenda">

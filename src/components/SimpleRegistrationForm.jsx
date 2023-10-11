@@ -30,9 +30,10 @@ export function SimpleRegistrationForm() {
       </Typography>
       <form className="mt-8 mb-2 xl:w-1/2 mb:w-full">
         <div className="mb-4 flex flex-col gap-6">
-          <Input name="nombre" labelProps={{ htmlFor: "nombre" }} aria-label="nombre" size="lg" label="Nombre y Apellidos" className="shadow-xl"/>
-          <Input name="email" labelProps={{ htmlFor: "email" }} aria-label="email" size="lg" label="Email" className="shadow-xl" />
+          <Input id="nombre" name="nombre" labelProps={{ htmlFor: "nombre" }} aria-label="nombre" size="lg" label="Nombre y Apellidos" className="shadow-xl"/>
+          <Input id="email" name="email" labelProps={{ htmlFor: "email" }} aria-label="email" size="lg" label="Email" className="shadow-xl" />
           <Input
+            id="telefono"
             aria-label="telefono"
             name="telefono" labelProps={{ htmlFor: "telefono" }}
             type="number"
@@ -46,6 +47,7 @@ export function SimpleRegistrationForm() {
             lista? <br /> Escríbeme y te responderé lo antes posible.
           </Typography>
           <Textarea
+            id="comentario"
             aria-label="comentario"
             name="comentario" labelProps={{ htmlFor: "comentario" }}
             type="textarea"

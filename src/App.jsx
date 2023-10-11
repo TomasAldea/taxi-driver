@@ -15,7 +15,6 @@ function App() {
   const [vercelAnalytics, setVercelAnalytics] = useState(false);
 
   useEffect(() => {
-    console.log(vercelAnalytics);
   }, [vercelAnalytics]);
 
   useEffect(() => {
@@ -48,7 +47,7 @@ function App() {
       onDecline={() => {
         setVercelAnalytics(false);
       }}
-      onAccept={(acceptedByScrolling) => {
+      onAccept={() => {
         setVercelAnalytics(true);
       }}
       >

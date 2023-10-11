@@ -43,6 +43,8 @@ function App() {
       declineButtonStyle={{ background: "#ff0000b0", color: "white", fontFamily: "Roboto", fontSize: "20px", borderRadius: "5px" }}
       buttonText="Aceptar"
       declineButtonText="Declinar"
+      ariaAcceptLabel="Aceptar cookies" 
+      ariaDeclineLabel="Declinar cookies"
       onDecline={() => {
         setVercelAnalytics(false);
       }}

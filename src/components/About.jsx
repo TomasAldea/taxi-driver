@@ -9,9 +9,9 @@ import {
 export function About() {
   return (
     <div id="quien-soy" className="flex flex-col items-center mt-12 mb:w-ful" data-aos-duration="300" data-aos="fade-up">
-      <h2 className="mt-2 mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <div className="mt-2 mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Sobre mi
-      </h2>
+      </div>
       <Card className="w-full flex-row mb-20 mb:flex-col">
         <CardHeader
           shadow={false}
@@ -26,7 +26,7 @@ export function About() {
         </CardHeader>
         <CardBody 
         className="flex flex-col justify-evenly">
-          <Typography variant="h4" color="blue-gray" className="mb-2">
+          <Typography color="blue-gray" className="mb-2 font-semibold text-lg">
             Mi nombre es Andreu y tengo 30 años
           </Typography>
           <Typography color="gray" className="font-normal">

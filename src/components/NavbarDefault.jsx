@@ -103,14 +103,14 @@ export function NavbarDefault() {
         color="blue-gray"
         className="p-1 font-normal cursor-pointer"
       >
-        <a
+        <div
           className="flex items-center"
           onClick={() => {
             scrollToSection("quien-soy");
           }}  
         >
           Quien soy
-        </a>
+        </div>
       </Typography>
     </ul>
   );
@@ -123,7 +123,6 @@ export function NavbarDefault() {
     ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
-          as="a"
           className="mr-4 cursor-pointer py-1.5 font-bold text-sabagreen-50"
         >
           Taxi Andreu
@@ -180,14 +179,14 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           <a href="/vcf/taxiandreu.vcf" download="taxiandreu.vcf">
-          <Button
-            variant="gradient"
-            size="sm"
-            fullWidth
-            className="mb-2 bg-sabagreen-50 bg-none"
-          >
-            <span>Añadir contacto</span>
-          </Button>
+            <Button
+              variant="gradient"
+              size="sm"
+              fullWidth
+              className="mb-2 bg-sabagreen-50 bg-none"
+            >
+              <span>Añadir contacto</span>
+            </Button>
           </a>
         </div>
       </Collapse>

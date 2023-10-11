@@ -17,7 +17,7 @@ export default function Hero() {
     <div id="inicio" className="bg-white">
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <img src="images/taxiteslamodels.webp" alt="" className='absolute bottom-0 right-0 -z-10 mb:-bottom-16' data-aos-delay="800" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0" loading="lazy"/>
+        <img src="images/taxiteslamodels.webp" alt="" className='absolute bottom-0 right-0 -z-10 mb:-bottom-16' data-aos-delay="800" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"/>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 mb:pt-8">
           <div className="mb-8 flex justify-center">
             <div 

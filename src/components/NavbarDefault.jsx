@@ -116,8 +116,10 @@ export function NavbarDefault() {
 
   return (
     <Navbar 
-    data-aos-delay="300" data-aos-duration="600" data-aos="fade-down" data-aos-offset="0"
-    className="fixed top-0 left-0 right-0 bg-white z-10 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+    data-aos-delay="300"
+    className="fixed top-0 left-0 right-0 bg-white z-10 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4
+     mb:w-full mb:rounded-t-none
+    ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"

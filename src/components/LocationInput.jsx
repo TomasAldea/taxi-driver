@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { track } from '@vercel/analytics';
+import { track } from "@vercel/analytics";
 
 import {
   Input,
@@ -49,7 +49,7 @@ export default function LocationInput() {
 
     const timeoutId = setTimeout(() => {
       fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${originName}`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${originName}&countrycodes=ES`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -68,7 +68,6 @@ export default function LocationInput() {
     if (origin && destination) {
       handleLocationSelection();
     }
-
   }, [originName]);
 
   useEffect(() => {
@@ -104,7 +103,6 @@ export default function LocationInput() {
     if (origin && destination) {
       handleLocationSelection();
     }
-
   }, [destinationName]);
 
   // Función para establecer el origen seleccionado
@@ -129,30 +127,30 @@ export default function LocationInput() {
       const response = await fetch(
         `https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf6248aa735e78014e427891cbee24bfab6519&start=${origin.lon},${origin.lat}&end=${destination.lon},${destination.lat}`
       );
-  
+
       if (!response.ok) {
         // Verificar si la respuesta no es exitosa (por ejemplo, un error HTTP 404 o 500)
         throw new Error(`Error en la solicitud: ${response.statusText}`);
       }
-  
+
       const data = await response.json();
-      
+
       if (data.error) {
         // Verificar si la respuesta de la API contiene un error específico
         throw new Error(`Error de la API: ${data.error.message}`);
       }
-  
-      const realDistance = data.features[0].properties.segments[0].distance / 1000;
+
+      const realDistance =
+        data.features[0].properties.segments[0].distance / 1000;
       setDistanceResult(realDistance.toFixed(2));
       setTotalPrice(realDistance.toFixed(2) * 1.38);
-      track('Presupuesto visto');
+      track("Presupuesto visto");
     } catch (error) {
       // Manejar cualquier error que ocurra durante la solicitud
       console.error(error);
       // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones apropiadas.
     }
   };
-  
 
   return (
     <>
@@ -174,15 +172,19 @@ export default function LocationInput() {
           <li className="py-2 border-b text-sabagreen-50 font-bold border-sabagreen-50 mb-4">
             Origen
           </li>
-          {originLocations.map(({ lat, lon, display_name, place_id }) => (
-            <li
-              className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
-              onClick={() => setOriginInput(lat, lon, display_name)}
-              key={place_id}
-            >
-              {display_name}
-            </li>
-          ))}
+          {originLocations.map(({ lat, lon, display_name, place_id }) =>
+            //! Agregamos una condición para verificar si place_id es igual a 103196206
+            place_id !== 103196206 ? (
+              <li
+                data-id={place_id}
+                className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
+                onClick={() => setOriginInput(lat, lon, display_name)}
+                key={place_id}
+              >
+                {display_name}
+              </li>
+            ) : null
+          )}
         </ul>
       )}
       <Input
@@ -208,15 +210,18 @@ export default function LocationInput() {
           <li className="py-2 border-b text-sabagreen-50 font-bold border-sabagreen-50 mb-4">
             Destino
           </li>
-          {destinationLocations.map(({ lat, lon, display_name, place_id }) => (
-            <li
-              className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
-              onClick={() => setDestinationInput(lat, lon, display_name)}
-              key={place_id}
-            >
-              {display_name}
-            </li>
-          ))}
+          {destinationLocations.map(({ lat, lon, display_name, place_id }) =>
+            //! Agregamos una condición para verificar si place_id es igual a 103196206
+            place_id !== 103196206 ? (
+              <li
+                className="cursor-pointer my-1 border-b border-b-gray-500 pb-1 hover:text-sabagreen-100"
+                onClick={() => setDestinationInput(lat, lon, display_name)}
+                key={place_id}
+              >
+                {display_name}
+              </li>
+            ) : null
+          )}
         </ul>
       )}
 
@@ -227,20 +232,22 @@ export default function LocationInput() {
             <TimelineHeader className="h-3 mb-8">
               <TimelineIcon />
               <Typography className="font-bold">
-                Kilómetros totales: <span className="text-sabagreen-50">{distanceResult}km</span>
+                Kilómetros totales:{" "}
+                <span className="text-sabagreen-50">{distanceResult}km</span>
               </Typography>
             </TimelineHeader>
-
           </TimelineItem>
           <TimelineItem>
             <TimelineConnector />
             <TimelineHeader className="h-3">
               <TimelineIcon />
               <Typography className="font-bold">
-                Presupuesto aproximado: <span className="text-sabagreen-50">{totalPrice.toFixed(2)}€</span>
+                Presupuesto aproximado:{" "}
+                <span className="text-sabagreen-50">
+                  {totalPrice.toFixed(2)}€
+                </span>
               </Typography>
             </TimelineHeader>
-
           </TimelineItem>
         </Timeline>
       )}

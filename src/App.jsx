@@ -13,7 +13,7 @@ import { useEffect } from "react";
 function App() {
 
   useEffect(() => {
-    AOS.init( {offset: 500} );
+    AOS.init( {offset: 300} );
   }, [])
   
   return (

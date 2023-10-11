@@ -7,7 +7,7 @@ export default function Hero() {
     <div id="inicio" className="bg-white">
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <img src="images/taxiteslamodels.png" alt="" className='absolute bottom-0 right-0 -z-10 mb:-bottom-16' data-aos-delay="1000" data-aos-duration="400" data-aos="fade-left" data-aos-offset="0"/>
+        <img src="images/taxiteslamodels.png" alt="" className='absolute bottom-0 right-0 -z-10 mb:-bottom-16' data-aos-delay="1000" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"/>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 mb:pt-20">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div 
@@ -31,7 +31,7 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                data-aos-delay="500" data-aos-duration="400" data-aos="fade-right" data-aos-offset="0"
+                data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"
                 onClick={track('Click en llamar hero')}
                 href="#"
                 className="flex flex-row rounded-md bg-sabagreen-50 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sabagreen-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
@@ -40,7 +40,7 @@ export default function Hero() {
                 <PhoneIcon className='w-5 ml-2'/>
               </a>
               <a 
-              data-aos-delay="500" data-aos-duration="400" data-aos="fade-left" data-aos-offset="0"
+              data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"
               href="#" 
               className="flex flex-row rounded-md bg-sabagreen-50 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sabagreen-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
                 Saber más <span className='ml-2' aria-hidden="true">→</span>

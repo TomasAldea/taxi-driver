@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { track } from "@vercel/analytics";
 
 import {
   Input,
@@ -60,14 +59,14 @@ export default function LocationInput() {
           console.error(error);
           setLoading(false);
         });
-    }, 500); // Esperar medio segundo después de la última pulsación de tecla
+
+      // Si ambos inputs estan rellenados, mostramos precio y distancia
+      if (origin && destination) {
+        handleLocationSelection();
+      }
+    }, 1000); // Esperar medio segundo después de la última pulsación de tecla
 
     setOriginTimeout(timeoutId);
-
-    // Si ambos inputs estan rellenados, mostramos precio y distancia
-    if (origin && destination) {
-      handleLocationSelection();
-    }
   }, [originName]);
 
   useEffect(() => {
@@ -84,7 +83,7 @@ export default function LocationInput() {
 
     const timeoutId = setTimeout(() => {
       fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${destinationName}`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${destinationName}&countrycodes=ES`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -95,14 +94,13 @@ export default function LocationInput() {
           console.error(error);
           setLoading(false);
         });
-    }, 500); // Esperar medio segundo después de la última pulsación de tecla
+      // Si ambos inputs estan rellenados, mostramos precio y distancia
+      if (origin && destination) {
+        handleLocationSelection();
+      }
+    }, 1000); // Esperar medio segundo después de la última pulsación de tecla
 
     setDestinationTimeout(timeoutId);
-
-    // Si ambos inputs estan rellenados, mostramos precio y distancia
-    if (origin && destination) {
-      handleLocationSelection();
-    }
   }, [destinationName]);
 
   // Función para establecer el origen seleccionado
@@ -121,11 +119,31 @@ export default function LocationInput() {
     setShowDestinationList(false); // Ocultar la lista de destino después de la selección
   };
 
-  // Función para conseguir la distancia entre puntos
   const handleLocationSelection = async () => {
     try {
+      const requestData = {
+        coordinates: [
+          [origin.lon, origin.lat],
+          [destination.lon, destination.lat],
+        ],
+        instructions: "true", // Si deseas obtener instrucciones de manejo
+        geometry: "true", // Si deseas obtener información de geometría
+      };
+
+      //TODO hay que esconder el apikey
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "5b3ce3597851110001cf6248aa735e78014e427891cbee24bfab6519", // Reemplaza con tu clave de API
+        },
+        body: JSON.stringify(requestData),
+      };
+
       const response = await fetch(
-        `https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf6248aa735e78014e427891cbee24bfab6519&start=${origin.lon},${origin.lat}&end=${destination.lon},${destination.lat}`
+        "https://api.openrouteservice.org/v2/directions/driving-car",
+        requestOptions
       );
 
       if (!response.ok) {
@@ -133,18 +151,20 @@ export default function LocationInput() {
         throw new Error(`Error en la solicitud: ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const jsonResponse = await response.json();
 
-      if (data.error) {
+      const {
+        routes: [{ summary }],
+      } = jsonResponse;
+
+      if (jsonResponse.error) {
         // Verificar si la respuesta de la API contiene un error específico
-        throw new Error(`Error de la API: ${data.error.message}`);
+        throw new Error(`Error de la API: ${jsonResponse.error.message}`);
       }
 
-      const realDistance =
-        data.features[0].properties.segments[0].distance / 1000;
+      const realDistance = summary.distance / 1000;
       setDistanceResult(realDistance.toFixed(2));
       setTotalPrice(realDistance.toFixed(2) * 1.38);
-      track("Presupuesto visto");
     } catch (error) {
       // Manejar cualquier error que ocurra durante la solicitud
       console.error(error);
@@ -152,9 +172,11 @@ export default function LocationInput() {
     }
   };
 
+
   return (
     <>
       <Input
+        className=" shadow-xl"
         type="text"
         label="Ingrese una ubicación de origen"
         value={originName}
@@ -188,6 +210,7 @@ export default function LocationInput() {
         </ul>
       )}
       <Input
+        className=" shadow-xl"
         type="text"
         label="Ingrese una ubicación de destino"
         value={destinationName}

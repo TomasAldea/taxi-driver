@@ -19,14 +19,14 @@ import LocationInput from "./LocationInput";
         </Typography>
         <form className="mt-8 mb-2 xl:w-1/2 mb:w-full">
           <div className="mb-4 flex flex-col gap-6">
-            <Input size="lg" label="Nombre y Apellidos" />
-            <Input size="lg" label="Email" />
-            <Input type="number" size="lg" label="Teléfono" />
+            <Input size="lg" label="Nombre y Apellidos" className=" shadow-xl"/>
+            <Input size="lg" label="Email" className=" shadow-xl"/>
+            <Input type="number" size="lg" label="Teléfono" className=" shadow-xl"/>
             <LocationInput/>
-            <Typography className="font-medium text-sabagreen-50 text-center mt-5">
-              ¿No encuentras el destino en la lista? ¿Tienes dudas extra? Escríbeme y te responderé lo mas pronto posible.
+            <Typography className="font-medium text-sabagreen-50 text-center mt-5" >
+            ¿Tienes dudas extra? <br/> ¿No encuentras el destino en la lista?<br/> Escríbeme y te responderé lo mas antes posible.
             </Typography>
-            <Textarea type="password" size="lg" label="Comentarios" />
+            <Textarea type="password" size="lg" label="Comentarios" className=" shadow-xl"/>
           </div>
           {/* <Checkbox
             label={

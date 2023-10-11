@@ -18,8 +18,8 @@ export default function Testimonials() {
           </div>
           <div className="-mx-3 md:flex flex-wrap items-start">
             {/* Primer testimonio */}
-            <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+            <div className="px-3 md:w-1/3 ">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=1" alt="" />
@@ -36,7 +36,7 @@ export default function Testimonials() {
 
             {/* Segundo testimonio */}
             <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=2" alt="" />
@@ -53,7 +53,7 @@ export default function Testimonials() {
 
             {/* Tercer testimonio */}
             <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=3" alt="" />
@@ -70,7 +70,7 @@ export default function Testimonials() {
 
             {/* Cuarto testimonio */}
             <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=4" alt="" />
@@ -87,7 +87,7 @@ export default function Testimonials() {
 
             {/* Quinto testimonio */}
             <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=5" alt="" />
@@ -104,7 +104,7 @@ export default function Testimonials() {
 
             {/* Sexto testimonio */}
             <div className="px-3 md:w-1/3">
-              <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+              <div className="w-full shadow-2xl min-h-[14rem] mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                 <div className="w-full flex mb-4 items-center">
                   <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                     <img src="https://i.pravatar.cc/100?img=6" alt="" />

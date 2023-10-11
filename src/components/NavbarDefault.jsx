@@ -1,5 +1,4 @@
 import React from "react";
-import { track } from '@vercel/analytics';
 
 import {
   Navbar,
@@ -19,14 +18,21 @@ export function NavbarDefault() {
     );
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId, extraPx = 0) => {
     var element = document.getElementById(sectionId);
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const y = element.getBoundingClientRect().top + window.scrollY;
+      window.scroll({
+        top: y - extraPx,
+        behavior: 'smooth'
+      });
+
       setTimeout(() => {
         setOpenNav(false);
       }, 800);
     }
+
   };
 
   const navList = (
@@ -42,7 +48,6 @@ export function NavbarDefault() {
           className="flex items-center"
           onClick={() => {
             scrollToSection("inicio");
-            track('Click en inicio hero');
           }}        >
           Inicio
         </div>
@@ -57,7 +62,6 @@ export function NavbarDefault() {
           className="flex items-center"
           onClick={() => {
             scrollToSection("servicios");
-            track('Click en servicios hero');
           }}    
         >
           Servicios
@@ -73,7 +77,6 @@ export function NavbarDefault() {
           className="flex items-center"
           onClick={() => {
             scrollToSection("testimonios");
-            track('Click en testimonios hero');
           }}    
         >
           Testimonios
@@ -88,8 +91,7 @@ export function NavbarDefault() {
         <div
           className="flex items-center"
           onClick={() => {
-            scrollToSection("presupuesto");
-            track('Click en presupuesto hero');
+            scrollToSection("presupuesto", 220);
           }}    
         >
           Presupuesto
@@ -105,7 +107,6 @@ export function NavbarDefault() {
           className="flex items-center"
           onClick={() => {
             scrollToSection("quien-soy");
-            track('Click en quien-soy hero');
           }}  
         >
           Quien soy
@@ -128,14 +129,15 @@ export function NavbarDefault() {
           Taxi Andreu
         </Typography>
         <div className="hidden lg:block">{navList}</div>
-        <Button
-          onClick={track('Click en llamar menú')}
-          variant="gradient"
-          size="sm"
-          className=" bg-sabagreen-50 bg-none hidden lg:inline-block"
-        >
-          <span>Llamar ya</span>
-        </Button>
+        <a href="tel:+34649713682">
+          <Button
+            variant="gradient"
+            size="sm"
+            className=" bg-sabagreen-50 bg-none hidden lg:inline-block"
+          >
+            <span>Llamar ya</span>
+          </Button>
+        </a>
         <IconButton
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -177,15 +179,16 @@ export function NavbarDefault() {
       <Collapse open={openNav}>
         <div className="container mx-auto">
           {navList}
+          <a href="/vcf/taxiandreu.vcf" download="taxiandreu.vcf">
           <Button
-            onClick={track('Click en Llamar ya menú')}
             variant="gradient"
             size="sm"
             fullWidth
             className="mb-2 bg-sabagreen-50 bg-none"
           >
-            <span>Llamar ya</span>
+            <span>Añadir contacto</span>
           </Button>
+          </a>
         </div>
       </Collapse>
     </Navbar>

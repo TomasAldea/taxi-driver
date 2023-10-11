@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+CLASS:PUBLIC
+REV:2017-01-11 13:04:50
+FN;CHARSET=UTF-8:TAXI ANDREU
+N;CHARSET=UTF-8:;TAXI ANDREU;;;
+
+ADR;TYPE=work;CHARSET=UTF-8:;;;;;;
+EMAIL;TYPE=internet,pref:taxiandreuf@gmail.com
+TEL;TYPE=work,voice:(+34) 64 971 36 82
+URL;TYPE=pref:https://email.com/
+TZ:+0100
+END:VCARD

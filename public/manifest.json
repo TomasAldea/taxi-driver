@@ -3,7 +3,8 @@
     "short_name": "Taxi Sabadell Andreu",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#257053",
+    "background_color": "#f0f8ff",
+    "theme_color": "#f0f8ff",
     "description": "Tu taxi de confianza.",
     "icons": [
       {

@@ -7,8 +7,12 @@ module.exports = withMT({
     extend: {
       colors: {
         sabagreen: {
+          1: "#b6e5d347",
           50: "#257053",
           100 : "#1a513b"
+        },
+        sabablue: {
+          1: "#f0f8ff",
         }
       },
       screens: {

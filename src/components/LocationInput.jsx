@@ -179,7 +179,7 @@ export default function LocationInput() {
         id="destino"
         aria-label="destino"
         name="destino" labelProps={{ htmlFor: "destino" }}
-        className=" shadow-xl"
+        className="shadow-xl bg-white"
         type="text"
         label="Ingrese una ubicación de origen"
         value={originName}
@@ -216,7 +216,7 @@ export default function LocationInput() {
         id="origen"
         aria-label="origen"
         name="origen" labelProps={{ htmlFor: "origen" }}
-        className=" shadow-xl"
+        className="shadow-xl bg-white"
         type="text"
         label="Ingrese una ubicación de destino"
         value={destinationName}

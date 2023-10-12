@@ -122,11 +122,7 @@ export function NavbarDefault() {
      mb:w-full mb:rounded-t-none
     ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          className="mr-4 cursor-pointer py-1.5 font-bold text-sabagreen-50"
-        >
-          Taxi Andreu
-        </Typography>
+        <img src="images/logobig.png" alt="" className=" w-16"/>
         <div className="hidden lg:block">{navList}</div>
         <a href="tel:+34649713682" aria-label="llamar ya">
           <Button

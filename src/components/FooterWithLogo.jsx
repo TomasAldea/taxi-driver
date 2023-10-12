@@ -4,11 +4,7 @@ export function FooterWithLogo() {
   return (
     <footer className="w-full bg-white p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-        <Typography
-          className="mr-4 cursor-pointer py-1.5 font-bold text-sabagreen-50"
-        >
-          Taxi Andreu
-        </Typography>
+        <img src="images/logobig.png" alt="" className=" w-16"/>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
             <Typography

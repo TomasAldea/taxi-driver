@@ -126,8 +126,8 @@ export default function LocationInput() {
           [origin.lon, origin.lat],
           [destination.lon, destination.lat],
         ],
-        instructions: "true", // Si deseas obtener instrucciones de manejo
-        geometry: "true", // Si deseas obtener información de geometría
+        instructions: "false", // Si deseas obtener instrucciones de manejo
+        geometry: "false", // Si deseas obtener información de geometría
       };
 
       //TODO hay que esconder el apikey
@@ -152,7 +152,7 @@ export default function LocationInput() {
       }
 
       const jsonResponse = await response.json();
-
+      console.log(jsonResponse);
       const {
         routes: [{ summary }],
       } = jsonResponse;

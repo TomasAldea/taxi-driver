@@ -29,7 +29,7 @@ const features = [
 
 export default function Features() {
   return (
-    <div id="servicios" className="bg-white py-24 sm:py-32 mb:pb-6" >
+    <div id="servicios" className="bg-sabablue-1 py-24 sm:py-32 mb:pb-6" >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-sabagreen-50">Servicio 24h</h2>
@@ -43,9 +43,9 @@ export default function Features() {
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
-              <div key={feature.name} className="relative pl-16 shadow-2xl p-4 rounded-lg">
+              <div key={feature.name} className="relative pl-16 shadow-2xl p-4 rounded-lg bg-white  min-w-[13px]">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sabagreen-50">
+                  <div className="absolute left-4 top-5 flex h-10 w-10 items-center justify-center rounded-lg bg-sabagreen-50">
                     <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
                   </div>
                   {feature.name}

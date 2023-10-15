@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/react";
 import AOS from "aos";
 import { useEffect, useState } from "react";
 import CookieConsent from "react-cookie-consent";
+import { DatosEnriquecidos } from "./components/DatosEnriquecidos";
 
 function App() {
   const [vercelAnalytics, setVercelAnalytics] = useState(false);
@@ -53,6 +54,8 @@ function App() {
       >
         Este sitio web utiliza cookies para mejorar la experiencia del usuario.
       </CookieConsent>
+
+      <DatosEnriquecidos/>
     </>
   );
 }

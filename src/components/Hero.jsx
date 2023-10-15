@@ -16,13 +16,11 @@ export default function Hero() {
   return (
     <div id="inicio" className="bg-sabablue-1">
 
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <img src="images/taxiteslamodels.webp" alt="" className='imagen-scale absolute bottom-0 right-0 -z-10 mb:-bottom-16'/>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 mb:pt-8">
+      <div className="relative isolate px-6 pt-20 min-h-screen lg:px-8">
+        <div className="mx-auto max-w-2xl">
           <div className="mb-8 flex justify-center">
             <div 
-            
-            className="cursor-pointer flex flex-row w-max relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 mb:flex-col mb:items-center">
+            className=" h-full cursor-pointer flex flex-row w-max relative rounded-full px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 mb:flex-col mb:items-center">
               ¿Necesitas un presupuesto a medida?
               <div 
                 onClick={() => scrollToNextSection('presupuesto', 220)}
@@ -59,12 +57,9 @@ export default function Hero() {
               </div>
             </div>
           </div>
+        <img src="images/taxiteslamodels.webp" alt="" className='imagen-scale mt-6'/>
         </div>
-        <div
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-          aria-hidden="true"
-        >
-        </div>
+
       </div>
     </div>
   )

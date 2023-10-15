@@ -176,6 +176,7 @@ export default function LocationInput() {
   return (
     <>
       <Input
+        autoComplete="off"
         id="destino"
         aria-label="destino"
         name="destino" labelProps={{ htmlFor: "destino" }}
@@ -213,6 +214,7 @@ export default function LocationInput() {
         </ul>
       )}
       <Input
+        autoComplete="off"
         id="origen"
         aria-label="origen"
         name="origen" labelProps={{ htmlFor: "origen" }}

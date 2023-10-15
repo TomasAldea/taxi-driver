@@ -52,3 +52,19 @@ label {
         transform: scale(1);
     }
 }
+
+.loading {
+    animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,3 +1,4 @@
+import { Routes, Route, BrowserRouter} from "react-router-dom";
 import { NavbarDefault } from "./components/NavbarDefault";
 import { FooterWithLogo } from "./components/FooterWithLogo";
 import { SimpleRegistrationForm } from "./components/SimpleRegistrationForm";
@@ -11,51 +12,82 @@ import AOS from "aos";
 import { useEffect, useState } from "react";
 import CookieConsent from "react-cookie-consent";
 import { DatosEnriquecidos } from "./components/DatosEnriquecidos";
+import { PrivacyPage } from "./components/PrivacyPage";
 
 function App() {
   const [vercelAnalytics, setVercelAnalytics] = useState(false);
-
-  useEffect(() => {
-  }, [vercelAnalytics]);
-
-  useEffect(() => {
-    AOS.init({ offset: 300 });
-  }, []);
+  useEffect(() => {}, [vercelAnalytics]);
 
   return (
     <>
-      <NavbarDefault />
-      <Hero />
-      <div id="sections-container">
-        <Features />
-        <Testimonials />
-        <SimpleRegistrationForm />
-        <About />
-      </div>
-      <Instagram />
-      <FooterWithLogo />
-      {vercelAnalytics && <Analytics />}
+      <BrowserRouter>
+        {/* Templeate */}
 
-      <CookieConsent 
-      enableDeclineButton 
-      style={{ background: "#257053", color: "white", fontFamily: "Roboto", fontSize: "20px" }}
-      buttonStyle={{ background: "white", color: "black", fontFamily: "Roboto", fontSize: "20px", borderRadius: "5px" }}
-      declineButtonStyle={{ background: "#ff0000b0", color: "white", fontFamily: "Roboto", fontSize: "20px", borderRadius: "5px" }}
-      buttonText="Aceptar"
-      declineButtonText="Declinar"
-      ariaAcceptLabel="Aceptar cookies" 
-      ariaDeclineLabel="Declinar cookies"
-      onDecline={() => {
-        setVercelAnalytics(false);
-      }}
-      onAccept={() => {
-        setVercelAnalytics(true);
-      }}
-      >
-        Este sitio web utiliza cookies para mejorar la experiencia del usuario.
-      </CookieConsent>
+        {/* Rutas */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <NavbarDefault />
+                <Hero />
+                <div id="sections-container">
+                  <Features />
+                  <Testimonials />
+                  <SimpleRegistrationForm />
+                  <About />
+                </div>
+              </>
+            }
+          />
+          <Route path="/privacidad" element={<PrivacyPage/>}></Route>
+          <Route path='*'element={<h1>Not found</h1>}/>
 
-      <DatosEnriquecidos/>
+        </Routes>
+        {/* End Rutas */}
+
+        {/* Templeate */}
+        <Instagram />
+        <CookieConsent
+          enableDeclineButton
+          style={{
+            background: "#257053",
+            color: "white",
+            fontFamily: "Roboto",
+            fontSize: "20px",
+          }}
+          buttonStyle={{
+            background: "white",
+            color: "black",
+            fontFamily: "Roboto",
+            fontSize: "20px",
+            borderRadius: "5px",
+          }}
+          declineButtonStyle={{
+            background: "#ff0000b0",
+            color: "white",
+            fontFamily: "Roboto",
+            fontSize: "20px",
+            borderRadius: "5px",
+          }}
+          buttonText="Aceptar"
+          declineButtonText="Declinar"
+          ariaAcceptLabel="Aceptar cookies"
+          ariaDeclineLabel="Declinar cookies"
+          onDecline={() => {
+            setVercelAnalytics(false);
+          }}
+          onAccept={() => {
+            setVercelAnalytics(true);
+          }}
+        >
+          Este sitio web utiliza cookies para mejorar la experiencia del
+          usuario.
+        </CookieConsent>
+        <DatosEnriquecidos />
+        {vercelAnalytics && <Analytics />}
+        <FooterWithLogo />
+      </BrowserRouter>
     </>
   );
 }

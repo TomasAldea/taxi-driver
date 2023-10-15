@@ -1,25 +1,18 @@
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export function FooterWithLogo() {
   return (
     <footer className="custom-shadow w-full bg-white p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-        <img src="images/logobig.png" alt="" className=" w-16"/>
+        <Link to="/" aria-label="Inicio">
+          <img src="images/logobig.png" alt="logo web" className=" w-16"/>
+        </Link>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
             <Typography
               as="a"
-              href="#"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              Licencia
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as="a"
-              href="#"
+              href="mailto:taxiandreuf@gmail.com"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >

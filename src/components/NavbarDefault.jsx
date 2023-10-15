@@ -1,4 +1,5 @@
 import React from "react";
+import { Link} from "react-router-dom";
 
 import {
   Navbar,
@@ -116,13 +117,14 @@ export function NavbarDefault() {
   );
 
   return (
-    <Navbar 
-    data-aos-delay="300"
+    <Navbar
     className="fixed top-0 left-0 right-0 bg-white z-10 mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4
      mb:w-full mb:rounded-t-none
     ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <img src="images/logobig.png" alt="" className=" w-16"/>
+        <Link to="/" aria-label="Inicio">
+          <img src="images/logobig.png" alt="logo web" className=" w-16"/>
+        </Link>
         <div className="hidden lg:block">{navList}</div>
         <a href="tel:+34649713682" aria-label="llamar ya">
           <Button

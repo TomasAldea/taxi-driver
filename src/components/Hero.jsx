@@ -31,18 +31,16 @@ export default function Hero() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Tu Taxi de confianza
             </h1>
             <p 
-            data-aos-delay="1000" data-aos-duration="600" data-aos="fade-in" data-aos-offset="0"
             className="mt-6 text-lg leading-8 text-gray-600">
             Si buscas un transporte confiable y seguro en la ciudad de Sabadell o alrededores para que te lleve a cualquier lugar de España, este es tu transporte. 
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 aria-label="llamar"
-                data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"
                 href="tel:+34649713682"
                 className="flex flex-row rounded-md bg-sabagreen-50 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sabagreen-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               >
@@ -51,7 +49,6 @@ export default function Hero() {
               </a>
               <div 
               onClick={() => scrollToNextSection('servicios')}
-              data-aos-delay="500" data-aos-duration="400" data-aos="fade-in" data-aos-offset="0"
               className=" cursor-pointer flex flex-row rounded-md bg-sabagreen-50 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sabagreen-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
                 Saber más <span className='ml-2' aria-hidden="true">→</span>
               </div>

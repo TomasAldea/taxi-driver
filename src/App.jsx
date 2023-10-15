@@ -8,7 +8,6 @@ import Testimonials from "./components/Testimonials";
 import { About } from "./components/About";
 import { Instagram } from "./components/Instagram";
 import { Analytics } from "@vercel/analytics/react";
-import AOS from "aos";
 import { useEffect, useState } from "react";
 import CookieConsent from "react-cookie-consent";
 import { DatosEnriquecidos } from "./components/DatosEnriquecidos";

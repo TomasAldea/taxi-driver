@@ -18,6 +18,89 @@ export function DatosEnriquecidos() {
     url: "https://taxisabadellandreu.es/",
     image: "images/logobig.png",
     openingHours: "Mo,Tu,We,Th,Fr 12:00-00:00",
+    "service": [ // Agrega una lista de servicios
+      {
+        "@type": "Service",
+        "name": "Taxi con reserva"
+      },
+      {
+        "@type": "Service",
+        "name": "Taxi al momento"
+      },
+      {
+        "@type": "Service",
+        "name": "taxi en sabadell"
+      },
+      {
+        "@type": "Service",
+        "name": "taxi sant quirze"
+      },
+      {
+        "@type": "Service",
+        "name": "Aeropuerto Sabadell"
+      },
+      {
+        "@type": "Service",
+        "name": "Aeropuerto Barcelona"
+      },
+      {
+        "@type": "Service",
+        "name": "Puerto Barcelona"
+      },
+      {
+        "@type": "Service",
+        "name": "Aeropuerto el prat"
+      },
+      {
+        "@type": "Service",
+        "name": "Precio cerrado"
+      },
+      {
+        "@type": "Service",
+        "name": "Servicios concertados"
+      },
+      {
+        "@type": "Service",
+        "name": "Servicios hospital"
+      },
+      {
+        "@type": "Service",
+        "name": "Precio para empresas"
+      },
+      {
+        "@type": "Service",
+        "name": "Precio para grupos"
+      },
+      {
+        "@type": "Service",
+        "name": "Taxi"
+      },
+      {
+        "@type": "Service",
+        "name": "Reservas con antelacion"
+      },
+      {
+        "@type": "Service",
+        "name": "taxi con espera"
+      },
+      {
+        "@type": "Service",
+        "name": "taxi larga distancia"
+      },
+      {
+        "@type": "Service",
+        "name": "estación de sants"
+      },
+      {
+        "@type": "Service",
+        "name": "Aeropuerto t1"
+      },
+      {
+        "@type": "Service",
+        "name": "Aeropuerto t2"
+      },
+      // Agrega más servicios según sea necesario
+    ]
     /* priceRange: "$$$", 
     review: {
       "@type": "Review",

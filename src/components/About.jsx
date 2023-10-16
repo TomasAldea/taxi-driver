@@ -8,7 +8,7 @@ import {
 
 export function About() {
   return (
-    <div id="quien-soy" className="flex flex-col items-center mt-12 mb:w-ful">
+    <div id="quien-soy" className="aos flex flex-col items-center mt-12 mb:w-ful mb:p-8">
       <div className="mt-2 mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Sobre mi
       </div>

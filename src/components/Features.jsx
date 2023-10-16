@@ -29,7 +29,7 @@ const features = [
 
 export default function Features() {
   return (
-    <div id="servicios" className="bg-sabablue-1 py-24 sm:py-32 mb:pb-6" >
+    <div id="servicios" className="aos bg-sabablue-1 py-24 sm:py-32 mb:pb-6" >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-sabagreen-50">Servicio 24h</h2>

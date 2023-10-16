@@ -25,13 +25,11 @@ export function SimpleRegistrationForm() {
     comentario: "",
   });
 
-  /* useEffect(() => {
-    sendEmail();
-    console.log(formData);
-  }, [submit]); */
+  useEffect(() => {
+  }, [loading]);
 
   const sendEmail = () => {
-    setTimeout(() => {
+    /*setTimeout(() => {
       console.log("bingo!");
       setSuccessSend(true);
       setLoading(false);
@@ -43,7 +41,8 @@ export function SimpleRegistrationForm() {
         behavior: 'smooth'
       });
     }, 1500);
-    return;
+    return;*/
+    console.log(formData);
     send(
       "service_35chdfk", // service id
       "template_0rm34bh", // template id
@@ -90,12 +89,19 @@ export function SimpleRegistrationForm() {
     setLoading(true);
     const destinoValue = getInputValueById("destino");
     const origenValue = getInputValueById("origen");
+    const totalPrice = getInputValueById("totalPrice");
+    const distanceResult = getInputValueById("distanceResult");
+    console.log(distanceResult);
 
     setFormData({
       ...formData,
       destinoValue,
       origenValue,
+      totalPrice,
+      distanceResult:distanceResult
     });
+
+    console.log(formData);
 
     setSubmit(true);
 
@@ -105,7 +111,7 @@ export function SimpleRegistrationForm() {
   return (
     <Card
       id="presupuesto"
-      className="mt-5 mb-8 items-center mb:px-8"
+      className="aos mt-5 mb-8 items-center mb:px-8"
       color="transparent"
       shadow={false}
     >

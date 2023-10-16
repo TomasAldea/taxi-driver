@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Testimonials() {
   return (
-    <div id="testimonios" className="bg-sabablue-1 min-w-screen min-h-screen flex items-center justify-center">
+    <div id="testimonios" className="aos bg-sabablue-1 min-w-screen min-h-screen flex items-center justify-center">
       <div className="w-ful border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
         <div className="w-full max-w-6xl mx-auto">
           <div className="text-center max-w-xl mx-auto">

@@ -175,6 +175,9 @@ export default function LocationInput() {
 
   return (
     <>
+      <input type="hidden" id="distanceResult" value={distanceResult ? distanceResult : ''} />
+      <input type="hidden" id="totalPrice" value={totalPrice ? totalPrice.toFixed(2) : ''} />
+      <input type="hidden" id="originLatLong" value={JSON.stringify(origin)} />
       <Input
         autoComplete="off"
         id="destino"

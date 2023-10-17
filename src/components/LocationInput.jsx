@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import {
+  Checkbox,
   Input,
   Timeline,
   TimelineItem,
@@ -10,7 +11,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-export default function LocationInput() {
+export default function LocationInput({ formState, setFormData }) {
   const [originName, setOriginName] = useState("");
   const [destinationName, setDestinationName] = useState("");
   const [origin, setOrigin] = useState(false);
@@ -24,6 +25,9 @@ export default function LocationInput() {
   const [destinationTimeout, setDestinationTimeout] = useState(null);
   const [distanceResult, setDistanceResult] = useState(null);
   const [totalPrice, setTotalPrice] = useState(null);
+  const [aeropuerto, setAeropuerto] = useState(false);
+  const [festivo, setFestivo] = useState(false);
+  const [espera, setEspera] = useState(false);
 
   function closeUl(event) {
     const elemento = document.querySelector(".main-ul");
@@ -35,7 +39,17 @@ export default function LocationInput() {
   document.addEventListener("click", closeUl);
 
   useEffect(() => {
-    if (originName.trim() === "") {
+    if (totalPrice !== null && distanceResult !== null) {
+      setFormData({
+        ...formState,
+        totalPrice,
+        distanceResult,
+      });
+    }
+  }, [totalPrice, distanceResult]);
+
+  useEffect(() => {
+    if (originName === "") {
       setOriginLocations([]);
       return;
     }
@@ -67,10 +81,17 @@ export default function LocationInput() {
     }, 1000); // Esperar medio segundo después de la última pulsación de tecla
 
     setOriginTimeout(timeoutId);
+
+    if (originName !== "") {
+      setFormData({
+        ...formState,
+        originName,
+      });
+    }
   }, [originName]);
 
   useEffect(() => {
-    if (destinationName.trim() === "") {
+    if (destinationName === "") {
       setDestinationLocations([]);
       return;
     }
@@ -101,6 +122,13 @@ export default function LocationInput() {
     }, 1000); // Esperar medio segundo después de la última pulsación de tecla
 
     setDestinationTimeout(timeoutId);
+
+    if (destinationName !== "") {
+      setFormData({
+        ...formState,
+        destinationName,
+      });
+    }
   }, [destinationName]);
 
   // Función para establecer el origen seleccionado
@@ -120,6 +148,7 @@ export default function LocationInput() {
   };
 
   const handleLocationSelection = async () => {
+    if (!origin.lon && !origin.lat) return;
     try {
       const requestData = {
         coordinates: [
@@ -152,7 +181,7 @@ export default function LocationInput() {
       }
 
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+
       const {
         routes: [{ summary }],
       } = jsonResponse;
@@ -163,8 +192,10 @@ export default function LocationInput() {
       }
 
       const realDistance = summary.distance / 1000;
+
+      //? toda la logica de precios
+      calculatePrice(realDistance);
       setDistanceResult(realDistance.toFixed(2));
-      setTotalPrice(realDistance.toFixed(2) * 1.38);
     } catch (error) {
       // Manejar cualquier error que ocurra durante la solicitud
       console.error(error);
@@ -172,17 +203,43 @@ export default function LocationInput() {
     }
   };
 
+  useEffect(() => {
+    handleLocationSelection();
+
+      setFormData({
+        ...formState,
+        festivo: festivo ? "si" : "no",
+        aeropuerto: aeropuerto ? "si" : "no",
+        espera: espera ? "si" : "no"
+      });
+   
+  }, [festivo, aeropuerto, espera])
+  
+  const calculatePrice = (km) => {
+    
+    const bajadaBandera = (festivo) ? 7.35 : 6.75;
+    const inpuestoAeropuerto = (aeropuerto) ? 4.5 : 0;
+    const horaEspera = (espera) ? 22.47 : 0;
+    const precioKm = (festivo) ? 0.81 : 0.76;
+    var price = km * precioKm;
+
+    price = parseFloat(price.toFixed(2));
+    price += bajadaBandera;
+    price += inpuestoAeropuerto;
+    price += horaEspera;
+    
+    setTotalPrice(parseFloat(price.toFixed(2)));
+  };
 
   return (
     <>
-      <input type="hidden" id="distanceResult" value={distanceResult ? distanceResult : ''} />
-      <input type="hidden" id="totalPrice" value={totalPrice ? totalPrice.toFixed(2) : ''} />
       <input type="hidden" id="originLatLong" value={JSON.stringify(origin)} />
       <Input
         autoComplete="off"
         id="destino"
         aria-label="destino"
-        name="destino" labelProps={{ htmlFor: "destino" }}
+        name="destino"
+        labelProps={{ htmlFor: "destino" }}
         className="shadow-xl bg-white"
         type="text"
         label="Ingrese una ubicación de origen"
@@ -220,7 +277,8 @@ export default function LocationInput() {
         autoComplete="off"
         id="origen"
         aria-label="origen"
-        name="origen" labelProps={{ htmlFor: "origen" }}
+        name="origen"
+        labelProps={{ htmlFor: "origen" }}
         className="shadow-xl bg-white"
         type="text"
         label="Ingrese una ubicación de destino"
@@ -258,7 +316,35 @@ export default function LocationInput() {
           )}
         </ul>
       )}
-
+      <div className="flex flex-row justify-evenly flex-wrap">
+        <Checkbox
+          aria-label="festivo"
+          name="festivo"
+          label="Festivo"
+          labelProps={{ htmlFor: "festivo" }}
+          onChange={(e) => {
+            setFestivo(!festivo);
+          }}
+        ></Checkbox>
+        <Checkbox
+          aria-label="aeropuerto"
+          name="aeropuerto"
+          label="Entrada a aeropuerto"
+          labelProps={{ htmlFor: "aeropuerto" }}
+          onChange={(e) => {
+            setAeropuerto(!aeropuerto);
+          }}
+        ></Checkbox>
+        <Checkbox
+          aria-label="espera"
+          name="espera"
+          label="Hora de espera"
+          labelProps={{ htmlFor: "espera" }}
+          onChange={(e) => {
+            setEspera(!espera);
+          }}
+        ></Checkbox>
+      </div>
       {distanceResult && (
         <Timeline>
           <TimelineItem>
@@ -277,9 +363,7 @@ export default function LocationInput() {
               <TimelineIcon />
               <Typography className="font-bold">
                 Presupuesto aproximado:{" "}
-                <span className="text-sabagreen-50">
-                  {totalPrice.toFixed(2)}€
-                </span>
+                <span className="text-sabagreen-50">{totalPrice}€</span>
               </Typography>
             </TimelineHeader>
           </TimelineItem>

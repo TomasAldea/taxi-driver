@@ -29,9 +29,10 @@ export function SimpleRegistrationForm() {
   }, [loading]);
 
   const sendEmail = () => {
-    /*setTimeout(() => {
+    /* setTimeout(() => {
       console.log("bingo!");
       setSuccessSend(true);
+      console.log(formData);
       setLoading(false);
 
       var element = document.getElementById('presupuesto');
@@ -41,8 +42,7 @@ export function SimpleRegistrationForm() {
         behavior: 'smooth'
       });
     }, 1500);
-    return;*/
-    console.log(formData);
+    return; */
     send(
       "service_35chdfk", // service id
       "template_0rm34bh", // template id
@@ -68,14 +68,6 @@ export function SimpleRegistrationForm() {
       });
   };
 
-  const getInputValueById = (inputId) => {
-    const inputElement = document.querySelector(`#${inputId}`);
-    if (inputElement) {
-      return inputElement.value;
-    }
-    return "";
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -87,22 +79,9 @@ export function SimpleRegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    const destinoValue = getInputValueById("destino");
-    const origenValue = getInputValueById("origen");
-    const totalPrice = getInputValueById("totalPrice");
-    const distanceResult = getInputValueById("distanceResult");
-    console.log(distanceResult);
 
-    setFormData({
-      ...formData,
-      destinoValue,
-      origenValue,
-      totalPrice,
-      distanceResult:distanceResult
-    });
-
-    console.log(formData);
-
+    /* console.log(formData);
+    return */
     setSubmit(true);
 
     sendEmail();
@@ -172,7 +151,7 @@ export function SimpleRegistrationForm() {
                 value={formData.telefono}
                 onChange={handleInputChange}
               />
-              <LocationInput />
+              <LocationInput formState={formData} setFormData={setFormData} />
               <Typography className="font-medium text-sabagreen-50 text-center mt-5">
                 ¿Tienes dudas adicionales? <br /> ¿No encuentras el destino en
                 la lista? <br /> Escríbeme y te responderé lo antes posible.
@@ -189,6 +168,7 @@ export function SimpleRegistrationForm() {
                 value={formData.comentario}
                 onChange={handleInputChange}
               />
+              <div className=" text-xs">* El precio indicado es una aproximación y podría variar ligeramente debido a factores como la hora del día o el municipio de destino</div>
               <div className="flex flex-row align-middle items-center">
                 <Checkbox
                   required

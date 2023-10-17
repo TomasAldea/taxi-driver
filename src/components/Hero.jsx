@@ -54,7 +54,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        <img src="images/taxiteslamodels.webp" alt="" className='imagen-scale mt-6'/>
+        <img src="images/taxihero.webp" alt="" className='imagen-scale mt-6 mx-auto w-64'/>
         </div>
 
       </div>

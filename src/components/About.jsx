@@ -19,7 +19,7 @@ export function About() {
           className="m-0 w-2/5 shrink-0 rounded-r-none mb:w-full mb:rounded-none"
         >
           <img
-            src="images/tesla-taxi-2.webp"
+            src="images/taxisobremi.webp"
             alt="card-image"
             className="h-full w-full object-cover"
           />

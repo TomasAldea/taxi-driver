@@ -92,7 +92,7 @@ export function NavbarDefault() {
         <div
           className="flex items-center"
           onClick={() => {
-            scrollToSection("presupuesto", 220);
+            scrollToSection("presupuesto", 100);
           }}    
         >
           Presupuesto

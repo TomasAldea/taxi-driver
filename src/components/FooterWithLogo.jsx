@@ -6,7 +6,7 @@ export function FooterWithLogo() {
     <footer className="custom-shadow w-full bg-white p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
         <Link to="/" aria-label="Inicio">
-          <img src="images/logobig.png" alt="logo web" className=" w-16" />
+          <img src="images/logobig.png"  width="64" height="31" alt="logo web" className=" !w-16" />
         </Link>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>

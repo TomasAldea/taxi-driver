@@ -16,7 +16,9 @@ module.exports = withMT({
         }
       },
       screens: {
-        'mb': {'max': '639px'}
+        'mb': {'max': '639px'},
+        'tb': {'max': '977px'},
+        'dk': {'min': '639px'}
       },
     },
   },

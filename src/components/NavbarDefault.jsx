@@ -19,21 +19,16 @@ export function NavbarDefault() {
     );
   }, []);
 
-  const scrollToSection = (sectionId, extraPx = 0) => {
+  const scrollToSection = (sectionId) => {
     var element = document.getElementById(sectionId);
-
+  
     if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY;
-      window.scroll({
-        top: y - extraPx,
+      const y = element.offsetTop;
+      window.scrollTo({
+        top: y,
         behavior: 'smooth'
       });
-
-      setTimeout(() => {
-        setOpenNav(false);
-      }, 800);
     }
-
   };
 
   const navList = (
@@ -92,7 +87,7 @@ export function NavbarDefault() {
         <div
           className="flex items-center"
           onClick={() => {
-            scrollToSection("presupuesto", 100);
+            scrollToSection("presupuesto");
           }}    
         >
           Presupuesto

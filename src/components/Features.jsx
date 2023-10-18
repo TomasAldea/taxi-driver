@@ -29,13 +29,13 @@ const features = [
 
 export default function Features() {
   return (
-    <div id="servicios" className="aos bg-sabablue-1 py-24 sm:py-32 mb:pb-6" >
+    <section id="servicios" className="aos bg-sabablue-1 py-24 sm:py-32 mb:pb-6" >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-sabagreen-50">Servicio 24h</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Tu servicio de transporte de confiaza
-          </p>
+          <div className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <div>Tu servicio de transporte de confiaza</div>
+          </div>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Soy un taxista autónomo, que trabaja con su propia base de clientes, basados en la confianza y seguridad.
           </p>
@@ -56,6 +56,6 @@ export default function Features() {
           </dl>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

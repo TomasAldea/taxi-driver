@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function Testimonials() {
   return (
-    <div id="testimonios" className="aos bg-sabablue-1 min-w-screen min-h-screen flex items-center justify-center">
-      <div className="w-ful border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
+    <section id="testimonios" className="aos bg-sabablue-1 min-w-screen min-h-screen flex items-center justify-center">
+      <div className="w-ful border-t border-b border-gray-200 px-5 py-6 md:py-10 text-gray-800">
         <div className="w-full max-w-6xl mx-auto">
           <div className="text-center max-w-xl mx-auto">
-            <h1 className="mb-2 mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Que dicen los clientes de mi</h1>
+            <h2 className="mb-2 mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Que dicen los clientes de mi</h2>
             <div className="text-xl mb-5 font-light">Testimonios reales</div>
             <div className="text-center mb-10">
               <span className="inline-block w-1 h-1 rounded-full bg-sabagreen-50 ml-1"></span>
@@ -121,6 +121,6 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

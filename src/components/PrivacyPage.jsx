@@ -1,11 +1,16 @@
 import React from "react";
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
-import { Link } from "react-router-dom";
+/* import { ArrowLeftIcon } from '@heroicons/react/24/outline' */
 
 export const PrivacyPage = () => {
+
+  window.scrollTo(0, 0);
+
+
   return (
-    <div className="container mx-auto px-10 pt-24 pb-10">
-      <Link to="/" className="flex flex-row align-middle cursor-pointer"><ArrowLeftIcon className="h-6 w-6 mr-2"/> Volver</Link>
+    <section id="privacyPage" className="container mx-auto px-10 mb:px-5 pt-4 pb-10">
+      {/* <button aria-label="Boton para ir a la página anterior" onClick={handleGoBack} className="flex flex-row align-middle cursor-pointer">
+        <ArrowLeftIcon className="h-6 w-6 mr-2"/> Volver
+      </button> */}
       <h1 className="text-2xl font-bold my-4">Aviso de Privacidad</h1>
       <p className="text-gray-600 my-4">
         Este aviso de privacidad describe cómo Taxi Andreu Sabadell recopila,
@@ -99,6 +104,6 @@ export const PrivacyPage = () => {
         leído y aceptado este aviso de privacidad. Tu consentimiento es esencial
         para procesar tu solicitud de presupuesto.
       </p>
-    </div>
+    </section>
   );
 };

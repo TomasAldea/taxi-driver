@@ -8,9 +8,9 @@ import {
 
 export function About() {
   return (
-    <div id="quien-soy" className="aos flex flex-col items-center mt-12 mb:w-ful mb:p-8">
+    <section id="quien-soy" className="aos flex flex-col items-center mt-12 mb:w-ful mb:p-8">
       <div className="mt-2 mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        Sobre mi
+       <h2>Sobre mi</h2>
       </div>
       <Card className="w-full flex-row mb-20 mb:flex-col">
         <CardHeader
@@ -35,6 +35,6 @@ export function About() {
           </Typography>
         </CardBody>
       </Card>
-    </div>
+    </section>
   );
 }

@@ -118,7 +118,7 @@ export function NavbarDefault() {
     ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link to="/" aria-label="Inicio">
-          <img src="images/logobig.png" alt="logo web" className=" w-16"/>
+          <img src="images/logobig.png" width="64" height="31" alt="logo web" className=" !w-16"/>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <a href="tel:+34649713682" aria-label="llamar ya">

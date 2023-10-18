@@ -54,8 +54,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        <img src="images/taxihero.webp" alt="" className='imagen-scale mt-6 mx-auto w-64 hidden tb:block'/>
-        <img src="images/taxihero.webp" alt="" className='imagen-scale mt-6 mx-auto w-96 tb:hidden absolute right-52 bottom-56'/>
+        <img src="images/taxihero.webp" alt="imagen taxi" width="348" height="251" className='imagen-scale mt-6 mx-auto !w-64 hidden tb:block'/>
+        <img src="images/taxihero.webp" alt="imagen taxi" width="256" height="167" className='imagen-scale mt-6 mx-auto !w-96 tb:hidden absolute right-52 bottom-56'/>
         </div>
       </div>
     </section>

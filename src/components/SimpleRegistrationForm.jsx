@@ -201,7 +201,7 @@ export function SimpleRegistrationForm() {
             </form>
           </>
         ) : (
-          <div className=" text-center text-lg leading-8 text-gray-600 mt-8">
+          <div className=" text-center text-lg leading-8 text-gray-800 mt-8">
             Tu solicitud ha sido enviada con éxito, en breve recibirás respuesta
             por mi parte, vía telefonía o a través del email proporcionado. <br/>
             Grácias por confiar en Taxi Andreu.

@@ -12,14 +12,14 @@ export const PrivacyPage = () => {
         <ArrowLeftIcon className="h-6 w-6 mr-2"/> Volver
       </button> */}
       <h1 className="text-2xl font-bold my-4">Aviso de Privacidad</h1>
-      <p className="text-gray-600 my-4">
+      <p className="text-gray-800 my-4">
         Este aviso de privacidad describe cómo Taxi Andreu Sabadell recopila,
         utiliza y protege la información personal que proporcionas al utilizar
         nuestro formulario de solicitud de presupuesto. Tu privacidad es
         importante para nosotros, y estamos comprometidos a proteger tus datos
         personales.
       </p>
-      <ol className="list-decimal list-inside text-gray-600 my-4 ml-6">
+      <ol className="list-decimal list-inside text-gray-800 my-4 ml-6">
         <li className="mb-5">
           <p className="underline underline-offset-4">Información recopilada</p>
           <p>
@@ -96,10 +96,10 @@ export const PrivacyPage = () => {
           </ul>
         </li>
       </ol>
-      <p className="text-gray-600 my-4">
+      <p className="text-gray-800 my-4">
         Fecha de última actualización: 15/10/2023
       </p>
-      <p className="text-gray-600 my-4">
+      <p className="text-gray-800 my-4">
         Al proporcionar tus datos a través del formulario, confirmas que has
         leído y aceptado este aviso de privacidad. Tu consentimiento es esencial
         para procesar tu solicitud de presupuesto.

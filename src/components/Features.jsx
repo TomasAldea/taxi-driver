@@ -36,7 +36,7 @@ export default function Features() {
           <div className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             <div>Tu servicio de transporte de confiaza</div>
           </div>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-gray-800">
             Soy un taxista autónomo, que trabaja con su propia base de clientes, basados en la confianza y seguridad.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function Features() {
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                <dd className="mt-2 text-base leading-7 text-gray-800">{feature.description}</dd>
               </div>
             ))}
           </dl>

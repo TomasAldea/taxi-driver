@@ -25,7 +25,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=1" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Kenzie Edgar.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Kenzie Edgar.</div>
                   </div>
                 </div>
                 <div className="w-full">
@@ -42,7 +42,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=2" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Stevie Tifft.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Stevie Tifft.</div>
                   </div>
                 </div>
                 <div className="w-full">
@@ -59,7 +59,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=3" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Tommie Ewart.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Tommie Ewart.</div>
                   </div>
                 </div>
                 <div className="w-full">
@@ -76,7 +76,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=4" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Charlie Howse.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Charlie Howse.</div>
                   </div>
                 </div>
                 <div className="w-full">
@@ -93,7 +93,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=5" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Nevada Herbertson.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Nevada Herbertson.</div>
                   </div>
                 </div>
                 <div className="w-full">
@@ -110,7 +110,7 @@ export default function Testimonials() {
                     <img src="https://i.pravatar.cc/100?img=6" width="1px" height="1px" className='w-10 h-auto' alt="Imagen usuario review" />
                   </div>
                   <div className="flex-grow pl-3">
-                    <div className="font-bold text-sm uppercase text-gray-600">Kris Stanton.</div>
+                    <div className="font-bold text-sm uppercase text-gray-800">Kris Stanton.</div>
                   </div>
                 </div>
                 <div className="w-full">

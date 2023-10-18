@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="mx-auto max-w-2xl flex flex-col mt-24 tb:mt-20 mb:!mt-0">
           <div className="mb-8 flex justify-start tb:justify-center">
             <div 
-            className=" h-full cursor-pointer flex flex-row w-max relative rounded-full px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 mb:flex-col mb:items-center">
+            className=" h-full cursor-pointer flex flex-row w-max relative rounded-full px-3 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/20 mb:flex-col mb:items-center">
               ¿Necesitas un presupuesto a medida?
               <div 
                 onClick={() => scrollToNextSection('presupuesto', 220)}
@@ -35,7 +35,7 @@ export default function Hero() {
               Tu Taxi de confianza
             </h1>
             <p 
-            className="mt-6 text-lg leading-8 text-gray-600">
+            className="mt-6 text-lg leading-8 text-gray-800">
             Si buscas un transporte confiable y seguro en la ciudad de Sabadell o alrededores para que te lleve a cualquier lugar de España, este es tu transporte. 
             </p>
             <div className="mt-10 flex items-center justify-start tb:justify-center gap-x-6">

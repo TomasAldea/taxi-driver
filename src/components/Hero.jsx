@@ -2,12 +2,12 @@ import { PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function Hero() {
 
-  const scrollToNextSection = (sectionId, extraPx = 0) => {
+  const scrollToNextSection = (sectionId) => {
     var element = document.getElementById(sectionId);
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY;
-      window.scroll({
-        top: y - extraPx,
+      window.scrollTo({
+        top: y - 320,
         behavior: 'smooth'
       });
     }
@@ -23,7 +23,7 @@ export default function Hero() {
             className=" h-full cursor-pointer flex flex-row w-max relative rounded-full px-3 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/20 mb:flex-col mb:items-center">
               ¿Necesitas un presupuesto a medida?
               <div 
-                onClick={() => scrollToNextSection('presupuesto', 220)}
+                onClick={() => scrollToNextSection('servicios')}
                 className="  ml-1 font-semibold text-sabagreen-50">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Solicitar presupuesto <span aria-hidden="true">&rarr;</span>

@@ -16,7 +16,7 @@ export function About() {
         <CardHeader
           shadow={false}
           floated={false}
-          className="m-0 w-2/5 shrink-0 rounded-r-none mb:w-full mb:rounded-none"
+          className="m-0 w-2/5 shrink-0 rounded-r-none mb:w-full mb:rounded-b-none mb:rounded-t-xl"
         >
           <img
             src="images/taxisobremi.webp"

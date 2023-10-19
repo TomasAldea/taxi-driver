@@ -14,21 +14,26 @@ export function NavbarDefault() {
 
   React.useEffect(() => {
     window.addEventListener(
-      "resize",
+      "resize", 
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId, extraPx = 0) => {
     var element = document.getElementById(sectionId);
-  
+
     if (element) {
-      const y = element.offsetTop;
+      const y = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
-        top: y,
+        top: y - extraPx,
         behavior: 'smooth'
       });
+
+      setTimeout(() => {
+        setOpenNav(false);
+      }, 800);
     }
+
   };
 
   const navList = (
@@ -36,9 +41,8 @@ export function NavbarDefault() {
     className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
-        variant="small"
         color="blue-gray"
-        className="p-1 font-normal cursor-pointer"
+        className="p-1 text-xl font-normal mb:!text-sm cursor-pointer"
       >
         <div
           className="flex items-center"
@@ -50,9 +54,8 @@ export function NavbarDefault() {
       </Typography>
       <Typography
         as="li"
-        variant="small"
         color="blue-gray"
-        className="p-1 font-normal cursor-pointer"
+        className="p-1 text-xl font-normal mb:!text-sm cursor-pointer"
       >
         <div
           className="flex items-center"
@@ -65,9 +68,8 @@ export function NavbarDefault() {
       </Typography>
       <Typography
         as="li"
-        variant="small"
         color="blue-gray"
-        className="p-1 font-normal cursor-pointer"
+        className="p-1 text-xl font-normal mb:!text-sm cursor-pointer"
       >
         <div
           className="flex items-center"
@@ -80,14 +82,13 @@ export function NavbarDefault() {
       </Typography>
       <Typography
         as="li"
-        variant="small"
         color="blue-gray"
-        className="p-1 font-normal cursor-pointer"
+        className="p-1 text-xl font-normal mb:!text-sm cursor-pointer"
       >
         <div
           className="flex items-center"
           onClick={() => {
-            scrollToSection("presupuesto");
+            scrollToSection("presupuesto", 40);
           }}    
         >
           Presupuesto
@@ -95,9 +96,8 @@ export function NavbarDefault() {
       </Typography>
       <Typography
         as="li"
-        variant="small"
         color="blue-gray"
-        className="p-1 font-normal cursor-pointer"
+        className="p-1 text-xl font-normal mb:!text-sm cursor-pointer"
       >
         <div
           className="flex items-center"
